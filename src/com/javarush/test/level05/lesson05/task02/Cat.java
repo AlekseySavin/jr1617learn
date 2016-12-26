@@ -11,10 +11,12 @@ package com.javarush.test.level05.lesson05.task02;
 
 public class Cat
 {
-    private String name;
-    private int age;
-    private int weight;
-    private int strength;
+    protected String name;
+    protected int age;
+    protected int weight;
+    protected int strength;
+    public static int fightCount = 0;
+
 
     public Cat()
     {
@@ -22,39 +24,13 @@ public class Cat
 
     public boolean fight(Cat anotherCat)
     {
-        //напишите тут ваш код
-        int Cat1Score = 0;
-        int Cat2Score = 0;
-        boolean Win;
+        fightCount++;
 
-        //need detailsk
-        if (this.weight > anotherCat.weight)
-        {
-            Cat1Score = Cat1Score + 1;
-        } else
-        {
-            Cat2Score = Cat2Score + 1;
-        }
-        //need details
-        if (this.strength > anotherCat.strength)
-        {
-            Cat1Score = Cat1Score + 1;
-        } else
-        {
-            Cat2Score = Cat2Score + 1;
-        }
-        //need details
-        //cat1 age grather cat2 age and cat1 age bigger than 5 and not bigger 7 (something like this)
+        int agePlus = this.age > anotherCat.age ? 1 : 0;
+        int weightPlus = this.weight > anotherCat.weight ? 1 : 0;
+        int strengthPlus = this.strength > anotherCat.strength ? 1 : 0;
 
-        if ((this.age > anotherCat.age))
-        {
-            Cat1Score = Cat1Score + 1;
-        } else
-        {
-            Cat2Score = Cat2Score + 1;
-        }
-
-        Win = Cat2Score <= Cat1Score;
-        return Win;
+        int score = agePlus + weightPlus + strengthPlus;
+        return score > 2; // return score > 2 ? true : false;
     }
 }
