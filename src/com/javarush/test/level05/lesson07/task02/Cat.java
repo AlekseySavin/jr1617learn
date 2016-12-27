@@ -17,7 +17,7 @@ public class Cat
     private int Weight;
     private int Age;
     private String Color;
-    private String Adress;
+    private String Address;
 
     public void initialize (String Name) {
         this.Name = Name;
@@ -36,14 +36,14 @@ public class Cat
 
     public void initialize (String Name, String Color) {
         this.Name = null;
-        this.Adress = null;
+        this.Address = null;
         this.Age = 0;
     }
 
-    public void initialize (String Name, String color, String adress) {
+    public void initialize (String Name, String color, String address) {
         this.Weight = 5;
         this.Color = "Red";
-        this.Adress = "Moonchen strasse";
+        this.Address = "Moonchen strasse";
     }
 
 
