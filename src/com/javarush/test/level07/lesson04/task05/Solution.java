@@ -16,9 +16,22 @@ public class Solution
     public static void main(String[] args) throws Exception
     {
         //напишите тут ваш код
-        int[] numbersOne = new int[20];
-        int[] numbersTwo = new int[10];
-        int[] nubmersThr = new int[10];
+        int[] ilist = new int[20];
 
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        for (int i = 0; i < ilist.length; i++) {
+            ilist[i] = Integer.parseInt(reader.readLine());
+        }
+
+        int[] miniListOne = new int [10];
+                System.arraycopy(ilist, 0,miniListOne,0, 10);
+
+        int[] miniListTwo = new int[10];
+                System.arraycopy(ilist, 10,miniListTwo,0,10);
+
+        for (int m = 0; m < miniListTwo.length; m++) {
+            System.out.println(miniListTwo[m]);
+        }
     }
 }
