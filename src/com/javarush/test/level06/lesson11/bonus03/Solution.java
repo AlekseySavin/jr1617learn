@@ -2,6 +2,7 @@ package com.javarush.test.level06.lesson11.bonus03;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 /* Задача по алгоритмам
 Задача: Написать программу, которая вводит с клавиатуры 5 чисел и выводит их в возрастающем порядке.
@@ -26,9 +27,14 @@ public class Solution
         BufferedReader reader  = new BufferedReader(new InputStreamReader(System.in));
 
         //напишите тут ваш код
-        for (int i = 1; i <= 5; i++) {
-            int a = Integer.parseInt(reader.readLine());
-            int b = a;
+        int[] nums = new int[5];
+
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = Integer.parseInt(reader.readLine());
+            }
+        for (int i=0; i < nums.length; i++) {
+            Arrays.sort(nums);
+            System.out.println(nums[i]);
         }
 
     }
