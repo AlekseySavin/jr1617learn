@@ -1,6 +1,8 @@
 package com.javarush.test.level06.lesson11.bonus02;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 /* Нужно добавить в программу новую функциональность
 Задача: У каждой кошки есть имя и кошка-мама. Создать класс, который бы описывал данную ситуацию. Создать два объекта: кошку-дочь и кошку-маму. Вывести их на экран.
@@ -29,51 +31,41 @@ public class Solution
 {
     public static void main(String[] args) throws IOException
     {
-    //    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        Cat daCat = new Cat("дедушка Вася");
-        Cat baCat = new Cat("бабушка Мурка");
-        Cat paCat = new Cat("папа Котофей", daCat,null);
-        Cat moCat = new Cat("мама Василиса", null, baCat);
-        Cat soCat = new Cat("сын Мурчик", paCat, moCat);
-        Cat doCat = new Cat("дочь Пушинка", paCat, moCat);
+        String motherName = reader.readLine();
+        Cat catMother = new Cat(motherName);
 
-        System.out.println(daCat);
-        System.out.println(baCat);
-        System.out.println(paCat);
-        System.out.println(moCat);
-        System.out.println(soCat);
-        System.out.println(doCat);
+        String daughterName = reader.readLine();
+        Cat catDaughter = new Cat(daughterName, catMother);
+
+        System.out.println(catMother);
+        System.out.println(catDaughter);
     }
 
     public static class Cat
     {
         private String name;
-        private Cat parentPa;
-        private Cat parentMa;
+        private Cat parent;
 
-        Cat (String name) {
+        Cat(String name)
+        {
             this.name = name;
         }
 
-        Cat(String name, Cat parentPa, Cat parentMa)
+        Cat(String name, Cat parent)
         {
             this.name = name;
-            this.parentPa = parentPa;
-            this.parentMa = parentMa;
+            this.parent = parent;
         }
 
         @Override
         public String toString()
         {
-            if ((parentPa == null) && (parentMa == null))
-                return "Cat name is " + name + ", no mother, no father";
-            if ((parentPa == null) && (parentMa != null))
-                return "Cat name is " + name + ", mother is " + parentMa.name  + ", no father";
-            if ((parentPa != null) && (parentMa == null))
-                return "Cat name is " + name + ", no mother" + ", father is " + parentPa.name;
+            if (parent == null)
+                return "Cat name is " + name + ", no mother ";
             else
-                return "Cat name is " + name + ", mother is " + parentMa.name + ", father is " + parentPa.name;
+                return "Cat name is " + name + ", mother is " + parent.name;
         }
     }
 
