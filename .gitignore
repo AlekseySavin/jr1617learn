@@ -1,0 +1,7 @@
+*.name
+codeStyleSettings.xml
+compiler.xml
+*.txt
+*.iml
+*.xml
+*.properties
