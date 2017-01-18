@@ -35,20 +35,15 @@ public class Solution
     {
         //напишите тут ваш код
 
-        Iterator<HashMap.Entry<String, String>> iterator = map.entrySet().iterator();
-
         int fncount = 0;
 
-        while (iterator.hasNext())
-        {
-
-            //
-            Map.Entry<String, String> pair = iterator.next();
-            String value = pair.getValue();
+        for (String value : map.values()) {
             if (value.equals(name)) {
                 fncount++;
             }
         }
+
+
 
 
         return fncount;
@@ -57,19 +52,14 @@ public class Solution
     public static int getCountTheSameLastName(HashMap<String, String> map, String lastName)
     {
         //напишите тут ваш код
-        Iterator<HashMap.Entry<String, String>> iterator = map.entrySet().iterator();
-
         int lncount = 0;
 
-        while (iterator.hasNext())
-        {
-            Map.Entry<String, String> pair = iterator.next();
-            String key = pair.getKey();
+        for (String key : map.keySet()) {
             if (key.equals(lastName)) {
                 lncount++;
             }
-
         }
+
         return lncount;
 
     }
