@@ -15,17 +15,17 @@ public class Solution
 
     }
 
-    public class Cow extends Carnivora
+    public class Cow extends Animal
     {
 
     }
 
-    public class Dog extends Animal
+    public class Dog extends Carnivora
     {
 
     }
 
-    public class Pig extends Carnivora
+    public class Pig extends Animal
     {
 
     }
